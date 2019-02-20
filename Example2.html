@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example add Component</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var x=0;
+			$('button').on('click',function(){
+				if(x<5)
+				{
+					var element=$('<p>Helllossss</p>');
+					$('.box').children('button').after(element);
+					x=x+1;	
+				}
+				if(x==5)
+				{
+					$('button').text("Clicked!!");
+				}
+			})
+		})
+	</script>
+	<style type="text/css">
+		.box{
+			width: 400px;
+			height: 400px;
+			background-color: skyblue;
+			border: 2px solid blue;
+			margin-left: 40%;
+			margin-top: 15%;
+		}
+		.box button{
+			width: 200px;
+			height: 60px;
+			background-color: lightgreen;
+			border: 2px solid blue;
+			border-radius: 10px;
+			margin-top: 80px;
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<button>Click to add</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			border:2px solid black;
+			border-radius: 10px;
+			/*display: none;*/
+		}
+		
+	</style>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*Example-1*/
+			/*$('a').on('click',function(event){
+				event.preventDefault();
+				$('.box').slideToggle();
+				
+			})*/
+			$('.box').on('click',function(){
+
+				$('.box').eq(1)
+
+				$('box').attr('val');
+			})
+		})
+	</script>
+</head>
+<body>
+	<!-- Example-1 -->
+	<!-- <a href="#">Comments</a>
+	<div class="box">
+		<p>Prolog</p>
+	</div> -->
+
+	<!-- CSS method -->
+	<div class="box" val="2">
+		
+	</div>
+	<div class="box">
+		
+	</div>
+	<div class="box">
+		
+	</div>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

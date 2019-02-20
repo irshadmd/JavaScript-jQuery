@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swap colors</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var col1,col2;
+			var key=0;
+			var ref;
+			$('div').on('click',function(){
+				if (key==0) {
+					col1=$(this).css('background-color');
+					$('p').text("Swap");
+					ref=$(this);
+					key=1;	
+				}else if(key==1){
+					col2=$(this).css('background-color');
+					$(this).css('background-color',col1);
+					$(ref).css('background-color',col2);
+					$('p').text("Select");
+					key=0;
+				}
+			})
+		})
+	</script>
+	<style type="text/css">
+		p{
+			border: 2px solid blue;
+			color: black;
+			font-size: 30px;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+		}
+		.box1{
+			background-color: lightpink;
+			border: 2px solid magenta;
+		}
+		.box2{
+			background-color: lightblue;
+			border: 2px solid blue;
+		}
+		.box3{
+			background-color: lightgreen;
+			border: 2px solid green;
+		}
+		.box4{
+			background-color: lightyellow;
+			border: 2px solid yellow;
+		}
+	</style>
+</head>
+<body>
+	<p>Select</p>
+
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paint</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var key=true;
+			var x;
+			$('div').on('click',function(){
+				if(key==true)
+				{
+					x=$(this).css('background-color');
+					$('p').text("Paint");	
+				}else{
+					$(this).css('background-color',x);
+					$('p').text("Select");
+				}
+				key=!key;
+				
+			})
+		})
+	</script>
+	<style type="text/css">
+		p{
+			color: blue;
+			font-size: 30px;
+			border: 2px solid blue;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+		}
+		.box1{
+			background-color: red;
+		}
+		.box2{
+			background-color: blue;
+		}
+		.box3{
+			background-color: yellow;
+		}
+		.box4{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<p>Select</p>
+
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+	<style type="text/css">
+		.holiday{
+			width: 200px;
+			height: 200px;
+			border: 2px solid green;
+		}
+		.holiday button{
+			padding:10px;
+			border: 2px solid green;
+		}
+	</style>
+	<!-- Example-1 -->
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			$('.holiday').on('click','button',function(){
+				alert('hello');
+			})
+		})
+	</script> -->
+
+
+	<!-- Example-2 -->
+	<!-- <style type="text/css">
+		ul{
+			list-style-type: none;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('button').on('click',function(){
+				$('ul').children('li').text('home');
+			})
+		})
+	</script> -->
+
+
+
+	<!-- Example-3 -->
+	<!-- use of this keyword and creating dynamic tag -->
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			$('.holiday').on('click','button',function(){
+				var p=$('<p>Booked</p>');
+				$(this).before(p);
+			})
+		})
+	</script> -->
+</head>
+<body>
+	<!-- Example-1 -->
+	<!-- <div class="holiday">
+		<button>click</button>
+	</div>
+
+	<button>click</button> -->
+
+	<!-- Example-2 -->
+	<!-- <button>Click</button>
+	<ul>
+		<li>Sub-1</li>
+		<li>Sub-2</li>
+		<li>Sub-3</li>
+		<h1><li>Sub-4</li></h1>
+		<li>Sub-5</li>
+	</ul> -->
+
+	<!-- Example-3 -->
+	<!-- *********************************************************
+
+			Homework:  Only single <p> should be added of example-3
+
+	************************************************************* -->
+
+	<!-- <div class="holiday">
+		<h1>Manali</h1>
+		<button>Book</button>
+	</div>
+	
+	<div class="holiday">
+		<h1>Shimla</h1>
+		<button>Book</button>
+	</div>
+
+	<div class="holiday">
+		<h1>Kashmir</h1>
+		<button>Book</button>
+	</div> -->
+
+
+
+	<!-- Example-4 -->
+	<!-- Appeding Element -->
+	<!-- 1.append
+		 2.prepend
+		 3.after
+		 4.before -->
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			$('button').on('click',function(){
+				var p=$('<p>Prolog</p>');
+				$('.prolog').after(p);
+			})
+		})
+	</script>
+	<style type="text/css">
+		button{
+			width: 100px;
+			padding: 10px;
+			border:2px solid red;
+			border-radius: 20px;
+			outline: none;
+		}
+	</style>
+	<button>Add</button>
+	<div class="prolog">
+		<p>P-1</p>
+		<p>P-2</p>
+		<p>P-3</p>
+		<p>P-4</p>
+	</div> -->
+
+
+	<!-- Remove -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.holiday').on('click','button',function(){
+				//$(this).css('background-color','red');//
+				$(this).parent().css('background-color','skyblue')
+			})
+		})
+	</script>
+
+	<div class="holiday">
+		<button>Kill Me</button>
+	</div>
+	<div class="holiday">
+		<button>Kill Me</button>
+	</div>
+	<div class="holiday">
+		<button>Kill Me</button>
+	</div>
+
+</body>
+</html>
