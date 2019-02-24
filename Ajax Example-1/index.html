@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Example1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('a').on('click',function(event){
+				event.preventDefault();
+				var file=$(this).attr('href');
+				$.ajax(file,{
+					success:function(data){
+						var el=$('<p>');
+						el.append(data);
+						$('button').after(el);
+					},
+					error:function(){
+						console.log("Error occured");
+					}
+				});
+			})
+		})
+	</script>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		.box{
+			width: 400px;
+			height: 400px;
+			border: 2px solid blue;
+			background-color: lightblue;
+			margin-left: 35%;
+		}
+		h3{
+			text-align: center;
+			color:blue;
+			text-align: center;
+		}
+		button{
+			width: 120px;
+			height: 60px;
+			border: 2px solid green;
+			background-color: lightgreen;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+		button a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<h3>Click the button to get data from file</h3>
+	<div class="box">
+		<button>
+			<a href="data.txt">Click me</a>
+		</button>
+	</div>
+</body>
+</html>
