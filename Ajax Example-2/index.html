@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Example-2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('a').on('click',function(event){
+				event.preventDefault();
+
+				var file=$(this).attr('href');
+				$.ajax(file,{
+					success:function(data){
+						var element=$('<p></p>');
+						$('button').after(element);
+						$(element).text("Name: "+data.name+" Email:"+data.email);
+					},
+					error:function(){
+						alert("error occured");
+					}
+				});
+			})
+		})
+	</script>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		p{
+			color: blue;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+		.box{
+			width: 400px;
+			height: 400px;
+			margin-left: 35%;
+			border: 2px solid green;
+			background-color: lightgreen;
+		}
+		.box button{
+			width: 150px;
+			height: 60px;
+			border: 2px solid blue;
+			background-color: lightblue;
+			color: blue;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+		.box button a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<p>Click to get data from JSON file</p>
+	<div class="box">
+		<button>
+			<a href="data.json">Click!!</a>
+		</button>
+	</div>
+</body>
+</html>
