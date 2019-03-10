@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Example-3</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('a').on('click',function(event){
+				event.preventDefault();
+				var file=$('a').attr('href');
+				$.ajax(file,{
+					success:function(data){
+						console.log(data);
+						
+/******************Setting one by one**********************************/						
+						/*var name=data[0].Phone;
+						var src=data[0].Src;
+						var a=$('.text1').text();
+						$('.text1').text(a+""+name);
+						var element=$('<img>');
+						$('.box1').append(element);
+						$('.box1 img').attr('src',src);
+
+						var name=data[1].Phone;
+						var src=data[1].Src;
+						var a=$('.text2').text();
+						$('.text2').text(a+""+name);
+						var element=$('<img>');
+						$('.box2').append(element);
+						$('.box2 img').attr('src',src);
+
+						var name=data[2].Phone;
+						var src=data[2].Src;
+						var a=$('.text3').text();
+						$('.text3').text(a+""+name);
+						var element=$('<img>');
+						$('.box3').append(element);
+						$('.box3 img').attr('src',src);
+						
+						$('button').remove();*/
+/*********************************Setting Using Loop**********************/
+						for(var i=0;i<3;i++)
+						{
+							var name=data[i].Phone;
+							var src=data[i].Src;
+							var a=$('.text'+(i+1)).text();
+							$('.text'+(i+1)).text(a+""+name);
+							var element=$('<img>');
+							$('.box'+(i+1)).append(element);
+							$('.box'+(i+1)).find('img').attr('src',src);		
+							$('button').remove();		
+						}
+					},
+					error:function(){
+						alert("Error Occured");
+					}
+				});
+			})
+		})
+	</script>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		p{
+			color: blue;
+			font-size: 30px;
+		}
+		.box{
+			width: 300px;
+			height: 750px;
+			background-color: lightblue;
+			border: 2px solid blue;
+			border-radius: 10px;
+			margin-left: 40%;
+		}
+		.box1{
+			width: 150px;
+			height: 150px;
+			border: 2px solid red;
+			margin-left: 72px;
+		}
+		.box2{
+			width: 150px;
+			height: 150px;
+			border: 2px solid red;
+			margin-left: 72px;
+		}
+		.box3{
+			width: 150px;
+			height: 150px;
+			border: 2px solid red;
+			margin-left: 72px;
+		}
+		.text1,.text2,.text3{
+			font-size: 18px;
+		}
+		.box button{
+			width: 150px;
+			height: 50px;
+			border: 2px solid green;
+			margin-top: 40px;
+		}
+		.box button a{
+			text-decoration: none;
+		}
+		.box1 img,.box2 img,.box3 img{
+			width: 150px;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	<p>Click to get data from JSON file</p>
+	<div class="box">
+		<p class="text1">Best Notch:</p>
+		<div class="box1"></div>
+		<p class="text2">Best Camera Phone:</p>
+		<div class="box2"></div>
+		<p class="text3">Best Gaming Phone:</p>
+		<div class="box3"></div>
+		<button>
+			<a href="data.json">Click!!</a>
+		</button>
+	</div>
+</body>
+</html>

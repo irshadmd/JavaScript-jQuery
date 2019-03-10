@@ -1,0 +1,14 @@
+[
+	{
+		"Phone":"Samsung S10",
+		"Src":"samsung.jpg"
+	},
+	{
+		"Phone":"Google Pixel 3XL",
+		"Src":"pixel.jpg"
+	},
+	{
+		"Phone":"Oneplus 6t",
+		"Src":"oneplus.jpg"
+	}
+]
