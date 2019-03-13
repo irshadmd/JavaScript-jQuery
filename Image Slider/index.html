@@ -1,0 +1,113 @@
+/*@Irshad
+Email:irshadmd039@gmail.com
+*/
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Slider</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('.rightbt').on('click',function(){
+				var liss=$('div').find('li');
+				var len=liss.length;
+				var lastImage=liss.eq(len-1).find('img').attr('src');
+				for(var i=len-1;i>=1;i--)
+				{
+					var src=liss.eq(i-1).find('img').attr('src');
+					liss.eq(i).find('img').attr('src',src);
+				}
+				liss.eq(0).find('img').attr('src',lastImage);	
+			})
+
+			$('.leftbt').on('click',function(){
+				var liss=$('div').find('li');
+				var len=liss.length;
+				var firstImage=liss.eq(0).find('img').attr('src');
+
+				for(i=1;i<=len-1;i++)
+				{
+					var src=liss.eq(i).find('img').attr('src');
+					liss.eq(i-1).find('img').attr('src',src);
+				}
+				liss.eq(len-1).find('img').attr('src',firstImage);
+			})
+			
+		})
+	</script>
+	<style type="text/css">
+
+		div{
+			width: 100%;
+			height: 580px;
+			background-color: lightblue;
+			border: 2px solid blue;
+			text-align: center;
+		}
+		button[class=leftbt],button[class=rightbt]{
+			width: 80px;
+			height: 80px;
+			border: 1px solid green;
+			background-color: lightgreen;
+			border-radius: 50%;
+			position: absolute;
+			outline: none;
+			color: green;
+			font-size: 40px;
+		}
+		button[class=leftbt]{
+			margin-top: 312px;
+    		margin-left: -56px;
+		}
+		button[class=rightbt]{
+			margin-top: 312px;
+    		margin-left: 17px;
+		}
+		ul{
+			list-style-type: none;
+			display: inline-block;
+			margin-top: 120px;
+		}
+		ul li{
+			display: inline-block;
+		}
+		ul li[class=largeimg]{
+			display: inline-block;
+		}
+		ul li[class=largeimg] img{
+			height: 350px;
+			width: 200px;
+			border:1px solid red;
+		}
+		ul li img{
+			height: 250px;
+			width: 150px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button class="leftbt"><</button>
+		<ul>
+			<li>
+				<img src="image1.jpeg">
+			</li>
+			<li>
+				<img src="image2.jpeg">
+			</li>
+			<li class="largeimg">
+				<img src="image3.jpeg">
+			</li>
+			<li>
+				<img src="image4.jpeg">
+			</li>
+			<li>
+				<img src="image5.jpeg">
+			</li>
+		</ul>
+		<button class="rightbt">></button>
+	</div>
+</body>
+</html>
