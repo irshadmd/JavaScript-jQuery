@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice</title>
+	<style type="text/css">
+		.box{
+			height: 350px;
+			width: 500px;
+			margin-left: 30%;
+			margin-top: 7%;
+			border: 5px solid skyblue;
+			text-align: center;
+		}
+		.box h1{
+			color: blue;
+		}
+		.box span{
+			font-size: 20px;
+			color: black;
+		}
+		.box select{
+			width: 250px;
+			height: 25px;
+			margin-left: 20px;
+		}
+		.box button{
+			width: 150px;
+			height: 45px;
+			background: red;
+			border: 2px solid red;
+			color: white;
+			margin-top: 40px;
+		}
+		.winnername p{
+			color: green;
+			font-size: 20px;
+			font-weight: bold;
+			margin-top: 20px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax('data.json',{
+				success:function(data){
+					console.log(data);
+					for(var i=0;i<data.Years.length;i++)
+					{
+						var op=$('<option>');
+						op.append(data.Years[i]);
+						$('#options').append(op);
+					}
+				}
+			});
+			
+			$('button').on('click',function(){
+				var selectedOption=$('.champions').children('option:selected').val();
+				
+				$.ajax('data.json',{
+					success:function(data){
+						for(var i=0;i<data.Years.length;i++)
+						{
+							if(selectedOption==data.Years[i])
+							{
+								var champname=data.Champions[i];
+								var p=$('<p>');
+								p.append(champname+" won the match in "+selectedOption);
+								$('.winnername').html(p);
+							}
+						}
+
+					}
+				})
+				
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h1>World Cup Winners</h1>
+		<span>Select Year</span>
+		<select class="champions" id="options">
+			<option >Select</option>
+		</select>
+		<button>Submit</button>
+		<div class="winnername">
+			
+		</div>
+	</div>
+</body>
+</html>

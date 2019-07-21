@@ -1,0 +1,14 @@
+[
+	{
+		"name":"OnePlus",
+		"image":"oneplus.jpg"
+	},
+	{
+		"name":"Pixel",
+		"image":"pixel.jpg"
+	},
+	{
+		"name":"Samsung",
+		"image":"samsung.jpg"
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"name":"HP",
+		"image":"hp.jpg"
+	},
+	{
+		"name":"Dell",
+		"image":"dell.jpg"
+	},
+	{
+		"name":"MacBook Pro",
+		"image":"mac.jpg"
+	},
+	{
+		"name":"Lenovo",
+		"image":"lenovo.jpg"
+	},
+	{
+		"name":"ASUS",
+		"image":"asus.jpg"
+	}
+]

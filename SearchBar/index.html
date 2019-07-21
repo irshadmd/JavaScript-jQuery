@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Bar</title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+		}
+		.searchbox{
+			background: url("boxbac.jpg");
+			background-repeat: repeat;
+		}
+		.searchbox h1{
+			font-size: 45px;
+			color: red;
+			display: inline-block;
+			margin-left: 30px;
+			font-style: italic;
+		}
+		.searchbox input[name="search"]{
+			width: 750px;
+			height: 35px;
+			margin-left: 30px;
+			background: transparent;
+			border: 2px solid white;
+			color: white;
+			font-style: italic;
+		}
+		.searchbox button{
+			width: 100px;
+			height: 35px;
+			color: white;
+			background:none;
+			margin-left: -6px;
+		}
+		.searchresult ul{
+			list-style-type: none;
+		}
+		.liset li{
+			display: inline-block;
+			width: 300px;
+			height: 400px;
+			text-align: center;
+		}
+		.liset li img{
+			width: 100%;
+			height: 70%;
+		}
+		.liset li h1{
+			color: blue;
+		}
+
+		/*************Loader**********/
+		.gooey {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  width: 142px;
+		  height: 40px;
+		  margin: -20px 0 0 -71px;
+		  background: none;
+		  filter: contrast(20);
+		}
+		.gooey .dot {
+		  position: absolute;
+		  width: 16px;
+		  height: 16px;
+		  top: 12px;
+		  left: 15px;
+		  filter: blur(4px);
+		  background: #000;
+		  border-radius: 50%;
+		  transform: translateX(0);
+		  animation: dot 2.8s infinite;
+		}
+		.gooey .dots {
+		  transform: translateX(0);
+		  margin-top: 12px;
+		  margin-left: 31px;
+		  animation: dots 2.8s infinite;
+		}
+		.gooey .dots span {
+		  display: block;
+		  float: left;
+		  width: 16px;
+		  height: 16px;
+		  margin-left: 16px;
+		  filter: blur(4px);
+		  background: #000;
+		  border-radius: 50%;
+		}
+		@-moz-keyframes dot {
+		  50% {
+		    transform: translateX(96px);
+		  }
+		}
+		@-webkit-keyframes dot {
+		  50% {
+		    transform: translateX(96px);
+		  }
+		}
+		@-o-keyframes dot {
+		  50% {
+		    transform: translateX(96px);
+		  }
+		}
+		@keyframes dot {
+		  50% {
+		    transform: translateX(96px);
+		  }
+		}
+		@-moz-keyframes dots {
+		  50% {
+		    transform: translateX(-31px);
+		  }
+		}
+		@-webkit-keyframes dots {
+		  50% {
+		    transform: translateX(-31px);
+		  }
+		}
+		@-o-keyframes dots {
+		  50% {
+		    transform: translateX(-31px);
+		  }
+		}
+		@keyframes dots {
+		  50% {
+		    transform: translateX(-31px);
+		  }
+		}
+		/*******************************/
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#submit').on('click',function(){
+				var value=$('input').val().toLowerCase();
+				if (value=="laptop") {
+					$('.liset').find('li').remove();
+					$.ajax('laptop.json',{
+						success:function(data){
+							console.log(data);
+							
+							for(var i=0;i<data.length;i++)
+							{
+								var li=$('<li>');
+								$('.liset').append(li);
+							}
+							for(var i=0;i<data.length;i++)
+							{
+								var image=$('<img>');
+								$('li').eq(i).append(image);
+								$('li').eq(i).find('img').attr('src',data[i].image);
+
+								var con=$('<h1>');
+								con.append(data[i].name);
+								$('li').eq(i).append(con);
+							}
+
+						},
+						error:function(){
+							alert("error");
+						},
+						beforeSend:function(){
+							$('.loader').addClass('gooey');
+						},
+						complete:function(){
+							$('.loader').removeClass('gooey');
+						}
+					});
+				}else if(value="phone"){
+					$('.liset').find('li').remove();
+					$.ajax('phone.json',{
+						success:function(data){
+							console.log(data);
+							
+							for(var i=0;i<data.length;i++)
+							{
+								var li=$('<li>');
+								$('.liset').append(li);
+							}
+							for(var i=0;i<data.length;i++)
+							{
+								var image=$('<img>');
+								$('li').eq(i).append(image);
+								$('li').eq(i).find('img').attr('src',data[i].image);
+
+								var con=$('<h1>');
+								con.append(data[i].name);
+								$('li').eq(i).append(con);
+							}
+
+						},
+						error:function(){
+							alert("error");
+						},
+						beforeSend:function(){
+							$('.loader').addClass('gooey');
+						},
+						complete:function(){
+							$('.loader').removeClass('gooey');
+						}
+					});
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<!--****** Loader ******-->
+	<div class="loader">
+	  <span class="dot"></span>
+	  <div class="dots">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </div>
+	</div>
+	<!-- ****************** -->
+	<div class="searchbox">
+		<h1>TechStore.com</h1>
+		<input type="Search" name="search">
+		<button id="submit">Search</button>	
+	</div>
+	<div class="searchresult">
+		<ul class="liset">
+
+		</ul>
+	</div>
+	
+</body>
+</html>
