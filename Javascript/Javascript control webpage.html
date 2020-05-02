@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<h3>Testing hello</h3>
+	<input type="text" name="">
+	<button onclick="activateFullScreen()">Activate Full Screen</button>
+	<button onclick="deactivateFullScreen()">Deactivate Full Screen</button>
+	<script type="text/javascript">
+		function activateFullScreen(){
+			document.documentElement.requestFullscreen();
+		}
+		function deactivateFullScreen(){
+			document.exitFullscreen();
+		}
+		$(document).ready(function () {
+		    //Disable cut copy paste
+		    $('html').bind('cut copy paste', function (e) {
+		        e.preventDefault();
+		    });
+		    
+		    //Disable mouse right click
+		    $("html").on("contextmenu",function(e){
+		        return false;
+		    });
+
+		    document.onkeydown = function(e) {
+		    	//Disable F12 function key
+			  if(event.keyCode == 123) {
+			     return false;
+			  }
+		    	//Disable F11 function key
+		      if(event.keyCode == 122) {
+			     return false;
+			  }
+			  //Disable ESC key
+			  if(event.keyCode == 27) {
+			     return false;
+			  }
+			  	//Disable F5 function key to stop refreshing browser
+			  if(event.keyCode == 116) {
+			     return false;
+			  }
+			  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+			     return false;
+			  }
+			  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+			     return false;
+			  }
+			  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+			     return false;
+			  }
+			  if(e.ctrlKey || e.shiftKey) {
+			     return false;
+			  }
+			  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+			     return false;
+			  }
+			  if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+				return false;
+			  }
+			  if(e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)){
+				return false;
+			  }
+			  if(e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)){
+				return false;
+			  }
+			  if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
+				return false;
+			  }
+			}
+			/*$(document).on("keydown",function(ev){
+			console.log(ev.keyCode);
+			if(ev.keyCode===27||ev.keyCode===122) return false
+			})*/
+		});
+
+
+	</script>
+</body>
+</html>
